@@ -29,15 +29,8 @@ def fixed_normal (m,sd,n):
     return opinions
 
 def right_bounded(x,e,m):
-    group1_x=x[x>0.5]
-    group2_x=x[x<=0.5]
-    e_r=np.zeros(x.shape)
-    m1=0.2
-    br_1=m1*group1_x+(1-m1)/2
-    e_r[x>0.5]=br_1*e[x>0.5]
-    m2=0.7
-    br_2=m2*group2_x+(1-m2)/2
-    e_r[x<=0.5]=br_2*e[x<=0.5]
+    br=m*x+(1-m)/2
+    e_r=br*e
     return e_r
 class social_bot_paper:
     def __init__(self,n,network,e,robot_ratio,a,b,bots_loc='random'):
